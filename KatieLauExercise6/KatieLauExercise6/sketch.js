@@ -11,22 +11,14 @@ function setup(){
     
     frameRate(10);
     createCanvas(800, 800);
-    monsters.push(new Monster(10, 300, .5, grey, berry, green, true, false));
-    monsters.push(new Monster(300, 450, .8, white, berry, grey, false, false));
-    monsters.push(new Monster(350, 40, 1.2, white, grey, green, true, true));
-    monsters.push(new Monster(100, 30, .5, berry, green, white, true, true));
     colors.push(grey);
     colors.push(berry);
     colors.push(green);
     colors.push(white);
-    
- 
-    monsters[0] = new Monster(10, 300, .5, colors[0], colors[1], colors[2], true, false);
-    monsters[1] = new Monster(300, 450, .8, colors[3], colors[1], colors[0], false, false);
-    monsters[2] = new Monster(350, 40, 1.2, colors[3], colors[0], colors[2], true, true);
-    monsters[3] = new Monster(100, 30, .5, colors[1], colors[2], colors[3], true, true);
-    
-    
+     monsters.push(new Monster(10, 300, .5, colors[0], colors[1], colors[2], true, false));
+    monsters.push(new Monster(300, 450, .8, colors[3], colors[1], colors[0], false, false));
+    monsters.push(new Monster(350, 40, 1.2, colors[3], colors[0], colors[2], true, true));
+    monsters.push(new Monster(100, 30, .5, colors[1], colors[2], colors[3], true, true));
     /*
     monsters0 = new Monster(10, 300, .5, grey, berry, green, false, true); //creates monsters objects
     monsters1 =  new Monster(300, 450, .8, berry, green, white, true, false);
@@ -39,17 +31,10 @@ function setup(){
 function draw(){
     background(0);
     
-    monsters[0].monstDraw();
+    monsters[0].monstDraw(); //draws each monster within the index of the array
     monsters[1].monstDraw();
     monsters[2].monstDraw();
     monsters[3].monstDraw();
-    
-    /*
-    monsters0.monstDraw(); //draws each separate monster
-    monsters1.monstDraw();
-    monsters2.monstDraw();
-    monsters3.monstDraw();
-   */
   }
 
 //constructor 
