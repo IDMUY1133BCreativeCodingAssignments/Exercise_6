@@ -1,5 +1,5 @@
+var monsters = [];
 function setup(){
-    //var monsters = [];
     //var colors = [];
 
     var grey = color(175);
@@ -17,33 +17,40 @@ function setup(){
     
     frameRate(10);
     createCanvas(800, 800);
+    monsters.push(new Monster(10, 300, .5, grey, berry, green, true, false));
+    monsters.push(new Monster(300, 450, .8, white, berry, grey, false, false));
+    monsters.push(new Monster(350, 40, 1.2, white, grey, green, true, true));
+    monsters.push(new Monster(100, 30, .5, berry, green, white, true, true));
     /*
     monsters[0] = new Monster(10, 300, .5, grey, berry, green, true, false);
     monsters[1] = new Monster(300, 450, .8, white, berry, grey, false, false);
     monsters[2] = new Monster(350, 40, 1.2, white, grey, green, true, true);
     monsters[3] = new Monster(100, 30, .5, berry, green, white, true, true);
     */
+    
+    /*
     monsters0 = new Monster(10, 300, .5, grey, berry, green, false, true); //creates monsters objects
     monsters1 =  new Monster(300, 450, .8, berry, green, white, true, false);
     monsters2 = new Monster(350, 40, 1.2, white, green, berry, false, true);
     monsters3 = new Monster(100, 30, .5, green, white, grey, true, false);
+    */
 }
 
 
 function draw(){
     background(0);
-    /*
+    
     monsters[0].monstDraw();
     monsters[1].monstDraw();
     monsters[2].monstDraw();
     monsters[3].monstDraw();
-    */
     
+    /*
     monsters0.monstDraw(); //draws each separate monster
     monsters1.monstDraw();
     monsters2.monstDraw();
     monsters3.monstDraw();
-   
+   */
   }
 
 //constructor 
