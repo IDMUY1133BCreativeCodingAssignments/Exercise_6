@@ -23,7 +23,7 @@ function setup(){
     monsters[2] = new Monster(350, 40, 1.2, white, grey, green, true, true);
     monsters[3] = new Monster(100, 30, .5, berry, green, white, true, true);
     */
-    monsters0 = new Monster(10, 300, .5, grey, berry, green, false, true);
+    monsters0 = new Monster(10, 300, .5, grey, berry, green, false, true); //creates monsters objects
     monsters1 =  new Monster(300, 450, .8, berry, green, white, true, false);
     monsters2 = new Monster(350, 40, 1.2, white, green, berry, false, true);
     monsters3 = new Monster(100, 30, .5, green, white, grey, true, false);
@@ -39,7 +39,7 @@ function draw(){
     monsters[3].monstDraw();
     */
     
-    monsters0.monstDraw();
+    monsters0.monstDraw(); //draws each separate monster
     monsters1.monstDraw();
     monsters2.monstDraw();
     monsters3.monstDraw();
@@ -48,7 +48,7 @@ function draw(){
 
 //constructor 
 function Monster(translateByX, translateByY, scaleBy, feet, ear, body, wideEye, openMouth){
-    this.tbx = translateByX;
+    this.tbx = translateByX; //defines values for the variables for "this" specific monster
     this.tby = translateByY;
     this.scale = scaleBy;
     this.feet = feet;
@@ -113,7 +113,7 @@ function brows() { //draws the brows
   line(110, 175, 160, 175);
   line(240, 175, 290, 175);
 }
-function eyes(chosenOne) {
+function eyes(chosenOne) { //draws eyes, chosenOne is supposed to determine if the eyes widen
   fill(170, 252, 255);
   ellipse(135, 210, 30, 30);
   ellipse(265, 210, 30, 30);
@@ -122,7 +122,7 @@ function eyes(chosenOne) {
   }
   }
 
-function mouth(chosenMouth) {
+function mouth(chosenMouth) { //mouth is open if chosenMouth is true 
   if(chosenMouth){
   fill(255, 99, 97);
   rect(135, 240, 130, 30);
