@@ -1,4 +1,5 @@
 var monsters = [];
+var colors = [];
 function setup(){
     //var colors = [];
 
@@ -8,25 +9,23 @@ function setup(){
     var white = color(255, 255, 255);
     var norm = 10;
     
-    /*
-    colors[0] = grey;
-    colors[1] = white;
-    colors[2] = berry;
-    colors[3] = green;
-    */
-    
     frameRate(10);
     createCanvas(800, 800);
     monsters.push(new Monster(10, 300, .5, grey, berry, green, true, false));
     monsters.push(new Monster(300, 450, .8, white, berry, grey, false, false));
     monsters.push(new Monster(350, 40, 1.2, white, grey, green, true, true));
     monsters.push(new Monster(100, 30, .5, berry, green, white, true, true));
-    /*
-    monsters[0] = new Monster(10, 300, .5, grey, berry, green, true, false);
-    monsters[1] = new Monster(300, 450, .8, white, berry, grey, false, false);
-    monsters[2] = new Monster(350, 40, 1.2, white, grey, green, true, true);
-    monsters[3] = new Monster(100, 30, .5, berry, green, white, true, true);
-    */
+    colors.push(grey);
+    colors.push(berry);
+    colors.push(green);
+    colors.push(white);
+    
+ 
+    monsters[0] = new Monster(10, 300, .5, colors[0], colors[1], colors[2], true, false);
+    monsters[1] = new Monster(300, 450, .8, colors[3], colors[1], colors[0], false, false);
+    monsters[2] = new Monster(350, 40, 1.2, colors[3], colors[0], colors[2], true, true);
+    monsters[3] = new Monster(100, 30, .5, colors[1], colors[2], colors[3], true, true);
+    
     
     /*
     monsters0 = new Monster(10, 300, .5, grey, berry, green, false, true); //creates monsters objects
@@ -143,7 +142,7 @@ function mouth(chosenMouth) { //mouth is open if chosenMouth is true
 
 function widenEyes(){
  norm++; //increases pupil size 
- //console.log(norm); //prints out NaN ? (not a number)
+ console.log(norm); //prints out NaN ? (not a number)
  norm = constrain(norm, 10, 30);
  if(norm == 30){
    norm = 10;
@@ -152,4 +151,3 @@ function widenEyes(){
   ellipse(135, 210, norm, norm);
   ellipse(265, 210, norm, norm);
 }
-
