@@ -19,18 +19,11 @@ function setup(){
     monsters.push(new Monster(300, 450, .8, colors[3], colors[1], colors[0], false, false));
     monsters.push(new Monster(350, 40, 1.2, colors[3], colors[0], colors[2], true, true));
     monsters.push(new Monster(100, 30, .5, colors[1], colors[2], colors[3], true, true));
-    /*
-    monsters0 = new Monster(10, 300, .5, grey, berry, green, false, true); //creates monsters objects
-    monsters1 =  new Monster(300, 450, .8, berry, green, white, true, false);
-    monsters2 = new Monster(350, 40, 1.2, white, green, berry, false, true);
-    monsters3 = new Monster(100, 30, .5, green, white, grey, true, false);
-    */
 }
 
 
 function draw(){
     background(0);
-    
     monsters[0].monstDraw(); //draws each monster within the index of the array
     monsters[1].monstDraw();
     monsters[2].monstDraw();
@@ -39,7 +32,7 @@ function draw(){
 
 //constructor 
 function Monster(translateByX, translateByY, scaleBy, feet, ear, body, wideEye, openMouth){
-    this.tbx = translateByX; //defines values for the variables for "this" specific monster
+    this.tbx = translateByX; //defines values for the variables for "this"                              specific monster
     this.tby = translateByY;
     this.scale = scaleBy;
     this.feet = feet;
@@ -48,15 +41,6 @@ function Monster(translateByX, translateByY, scaleBy, feet, ear, body, wideEye, 
     this.wideEye = wideEye;
     this.openMouth = openMouth;
 }
-
-/*
-function mousePressed() {
-    monsters0 = new Monster(colors[int(random(0, 4))], colors[int(random(0, 4))], colors[int(random(0, 4))], false, true);
-    monsters1 = new Monster(colors[int(random(0, 4))], colors[int(random(0, 4))], colors[int(random(0, 4))], true, false);
-    monsters2 = new Monster(white, green, berry, true, true);
-    monsters3 = new Monster(colors[int(random(0, 4))], colors[int(random(0, 4))], colors[int(random(0, 4))], true, false);
-  }
-*/
 
 Monster.prototype.monstDraw = function(){ //makes a method of the Monster class
     push();
@@ -70,7 +54,7 @@ Monster.prototype.monstDraw = function(){ //makes a method of the Monster class
     body(this.body);
     brows();
     eyes(this.wideEye); //if wideEye is true, the pupil widens
-    mouth(this.openMouth); //if openMouth is true, the mouth opens when a key is pressed
+    mouth(); //if openMouth is true, the mouth opens when a key is pressed
     pop();
 }
    
@@ -113,8 +97,8 @@ function eyes(chosenOne) { //draws eyes, chosenOne is supposed to determine if t
   }
   }
 
-function mouth(chosenMouth) { //mouth is open if chosenMouth is true 
-  if(chosenMouth){
+function mouth() { //mouth is open if chosenMouth is true 
+  if(mouseIsPressed){
   fill(255, 99, 97);
   rect(135, 240, 130, 30);
   fill(255);
@@ -132,7 +116,7 @@ function widenEyes(){
  if(norm == 30){
    norm = 10;
  }
-      fill(0);
+  fill(0);
   ellipse(135, 210, norm, norm);
   ellipse(265, 210, norm, norm);
 }
