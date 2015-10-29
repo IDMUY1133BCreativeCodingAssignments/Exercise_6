@@ -1,11 +1,11 @@
 
-Eye eye1, eye2;
+var eye1, eye2;
 var e;
-PImage cockroach;
+var cockroach;
 
 function setup() {
 
-  size(700, 700);
+  createCanvas(700, 700);
   smooth();
   noStroke();
 
@@ -36,7 +36,7 @@ function draw() {
     translate(-175, -175);
   } 
 
-  if (mousePressed) {
+  if (mouseIsPressed) {
     translate(random(-300, 300), random(-300, 300));
   }
 
@@ -101,31 +101,29 @@ function body() {
   line(305, 320, 305, 350);
 }
 
-class Eye {
+//Eye class
+function Eye() {
+    var x, y,s;
 
-  var eyeX, eyeY;
-  var size;
-  var angle = 0.0;
+    this.eyeX = x;
+    this.eyeY = y;
+    this.size = s;
+    this.angle = 0.0;
 
-  Eye(var x, var y, var s) {
-    eyeX = x;
-    eyeY = y;
-    size = s;
+    this.update = function( mx,  my) {
+        this.angle = atan2(my-y, mx-x);  
+    }
+    
+    this.display() {
+        push();
+        translate(this.eyeX, this.eyeY);
+        fill(255);
+        ellipse(0, 0, this.size, this.size);
+        rotate(this.angle);
+        fill(153);
+        ellipse(this.size/4, 0, this.size/3, this.size/3);
+        pop();
+      }
+    
   }
 
-  function update(var mx, var my) {
-
-    angle = atan2(my-eyeY, mx-eyeX);
-  }
-
-  function display() {
-    pushMatrix();
-    translate(eyeX, eyeY);
-    fill(255);
-    ellipse(0, 0, size, size);
-    rotate(angle);
-    fill(153);
-    ellipse(size/4, 0, size/3, size/3);
-    popMatrix();
-  }
-}
