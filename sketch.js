@@ -1,5 +1,8 @@
-var body = [body0, body1, body2, body3, body4, body5];  //declaring body variables in array; 6 monsters
 
+
+//eror that this.move is not a defined function; find solution for commented code
+
+var body = [body0, body1, body2, body3, body4, body5];  //declaring body variables in array; 6 monsters
 
 function setup(){
 	createCanvas(700,700);  //size(700,700)
@@ -9,18 +12,21 @@ function setup(){
     body3 = new Body(color(random(255),random(255),random(255)), color(random(255),random(255),random(255)), color(random(255),random(255),random(255)),50,30,8);  //fourth body, random colors, location, speed
     body4 = new Body(color(random(255),random(255),random(255)), color(random(255),random(255),random(255)), color(random(255),random(255),random(255)),50,30,6);  //fifth body, random colors, location, speed
     body5 = new Body(color(random(255),random(255),random(255)), color(random(255),random(255),random(255)), color(random(255),random(255),random(255)),50,30,1);  //sixth body, random colors, location, speed
+    
+    //var body0,body1,body2,body3,body4,body5;
+    //var body = [];
 }
 
 
 function draw(){
+	/*
 	background(255); //white background
 	for (var i = 0; i < 6 ; i++) {
-
 			body[i].move();  //calls move function
 			body[i].display(random(50,400)); //display(size)
 
 		}
-	/*
+	*/
 	body1.move();  //calls move function
 	body1.display(300); //display(size)
 	body2.move();
@@ -33,7 +39,7 @@ function draw(){
 	body5.display(500);
     body6.move();
 	body6.display(340);
-*/
+
 
 }
 
@@ -43,6 +49,13 @@ function Body(color1,color2,color3, x, y, sp){ // the constructor
 	this.xloc = x;
 	this.yloc = y;
 	this.speed = sp;
+
+	this.move = function(){  //moves body by changing speed
+		this.xloc = this.xloc + this.speed;
+			if (this.xloc > width){
+				this.xloc= 0;
+			}
+	}
     
 	this.display = function(h){  //variable h changes location and dimensions
 		stroke(0);
@@ -62,10 +75,4 @@ function Body(color1,color2,color3, x, y, sp){ // the constructor
 
 	} 
 
-	this.move = function(){  //moves body by changing speed
-		this.xloc = this.xloc + this.speed;
-			if (this.xloc > width){
-				this.xloc= 0;
-			}
-}
 } 
